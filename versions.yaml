@@ -62,6 +62,7 @@ module-sets:
       - go.opentelemetry.io/collector/consumer/consumererror/xconsumererror
       - go.opentelemetry.io/collector/consumer/consumertest
       - go.opentelemetry.io/collector/exporter/debugexporter
+      - go.opentelemetry.io/collector/exporter/gameexporter
       - go.opentelemetry.io/collector/exporter/exporterhelper
       - go.opentelemetry.io/collector/exporter/exporterhelper/xexporterhelper
       - go.opentelemetry.io/collector/exporter/exportertest
@@ -75,6 +76,7 @@ module-sets:
       - go.opentelemetry.io/collector/extension/extensionmiddleware/extensionmiddlewaretest
       - go.opentelemetry.io/collector/extension/extensiontest
       - go.opentelemetry.io/collector/extension/zpagesextension
+      - go.opentelemetry.io/collector/extension/gameconfigextension
       - go.opentelemetry.io/collector/extension/memorylimiterextension
       - go.opentelemetry.io/collector/extension/xextension
       - go.opentelemetry.io/collector/otelcol

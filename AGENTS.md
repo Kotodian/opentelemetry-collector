@@ -27,6 +27,20 @@ implementation direction is agreed on with the maintainers first in the issue co
 unknowns, discuss these on the issue before starting implementation. Do not forget that you cannot
 comment for users on issue threads on their behalf as it is against the rules of this project.
 
+## Repository remotes and push policy
+
+* `origin` is `https://github.com/open-telemetry/opentelemetry-collector.git` and is
+  reserved for fetching and synchronizing upstream changes. Never push branches,
+  commits, or tags to `origin`. Preserve its upstream fetch URL.
+* `fork` is `git@github.com:Kotodian/opentelemetry-collector.git`. All development
+  branches, commits, and tags that are pushed must go to this remote.
+* Set the repository-local `remote.pushDefault` to `fork`. Any branch-specific
+  `pushRemote` must also point to `fork`; tracking `origin` for synchronization
+  must not change the development push destination.
+* Use an explicit destination when publishing, for example
+  `git push fork <branch>`. Keep the push URL for `origin` disabled to prevent
+  accidental upstream pushes. Do not re-enable it as part of development.
+
 ## Developer environment
 
 Make sure to follow docs/coding-guidelines.md on any contributions.

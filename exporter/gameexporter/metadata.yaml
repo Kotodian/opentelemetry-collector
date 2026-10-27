@@ -1,0 +1,21 @@
+display_name: Game Exporter
+type: game
+github_project: Kotodian/opentelemetry-collector
+
+status:
+  disable_codecov_badge: true
+  class: exporter
+  stability:
+    development: [logs]
+
+sending_queue:
+  support: omitted
+  rationale: This synchronous protocol adapter leaves queueing and retry scheduling to the caller.
+
+tests:
+  # Generated lifecycle logs are not prepared platform event objects.
+  expect_consumer_error: true
+  config:
+    endpoint: https://testing.invalid
+    app_id: demo
+    app_secret: example-secret

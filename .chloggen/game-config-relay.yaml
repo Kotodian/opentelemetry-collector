@@ -1,0 +1,4 @@
+change_type: new_component
+component: extension/game_config
+note: Relay SDK remote configuration requests through the Collector using the game exporter's platform endpoint and signing credentials.
+issues: []

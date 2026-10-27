@@ -8,10 +8,12 @@ import (
 	forwardconnector "go.opentelemetry.io/collector/connector/forwardconnector"
 	"go.opentelemetry.io/collector/exporter"
 	debugexporter "go.opentelemetry.io/collector/exporter/debugexporter"
+	gameexporter "go.opentelemetry.io/collector/exporter/gameexporter"
 	nopexporter "go.opentelemetry.io/collector/exporter/nopexporter"
 	otlpexporter "go.opentelemetry.io/collector/exporter/otlpexporter"
 	otlphttpexporter "go.opentelemetry.io/collector/exporter/otlphttpexporter"
 	"go.opentelemetry.io/collector/extension"
+	gameconfigextension "go.opentelemetry.io/collector/extension/gameconfigextension"
 	memorylimiterextension "go.opentelemetry.io/collector/extension/memorylimiterextension"
 	zpagesextension "go.opentelemetry.io/collector/extension/zpagesextension"
 	"go.opentelemetry.io/collector/otelcol"
@@ -46,6 +48,7 @@ func components() (otelcol.Factories, error) {
 	}
 
 	factories.Extensions, err = otelcol.MakeFactoryMap[extension.Factory](
+		gameconfigextension.NewFactory(),
 		memorylimiterextension.NewFactory(),
 		zpagesextension.NewFactory(),
 	)
@@ -53,6 +56,7 @@ func components() (otelcol.Factories, error) {
 		return otelcol.Factories{}, err
 	}
 	factories.ExtensionModules = makeModulesMap(factories.Extensions, map[component.Type]string{
+		gameconfigextension.NewFactory().Type():    "go.opentelemetry.io/collector/extension/gameconfigextension v0.164.0",
 		memorylimiterextension.NewFactory().Type(): "go.opentelemetry.io/collector/extension/memorylimiterextension v0.164.0",
 		zpagesextension.NewFactory().Type():        "go.opentelemetry.io/collector/extension/zpagesextension v0.164.0",
 	})
@@ -71,6 +75,7 @@ func components() (otelcol.Factories, error) {
 
 	factories.Exporters, err = otelcol.MakeFactoryMap[exporter.Factory](
 		debugexporter.NewFactory(),
+		gameexporter.NewFactory(),
 		nopexporter.NewFactory(),
 		otlpexporter.NewFactory(),
 		otlphttpexporter.NewFactory(),
@@ -80,6 +85,7 @@ func components() (otelcol.Factories, error) {
 	}
 	factories.ExporterModules = makeModulesMap(factories.Exporters, map[component.Type]string{
 		debugexporter.NewFactory().Type():    "go.opentelemetry.io/collector/exporter/debugexporter v0.164.0",
+		gameexporter.NewFactory().Type():     "go.opentelemetry.io/collector/exporter/gameexporter v0.164.0",
 		nopexporter.NewFactory().Type():      "go.opentelemetry.io/collector/exporter/nopexporter v0.164.0",
 		otlpexporter.NewFactory().Type():     "go.opentelemetry.io/collector/exporter/otlpexporter v0.164.0",
 		otlphttpexporter.NewFactory().Type(): "go.opentelemetry.io/collector/exporter/otlphttpexporter v0.164.0",

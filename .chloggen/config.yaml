@@ -15,11 +15,13 @@ components:
     - connector/sample
     - docs/rfcs
     - exporter/debug
+    - exporter/game
     - exporter/nop
     - exporter/otlp_grpc
     - exporter/otlp_http
     - extension/memory_limiter
     - extension/zpages
+    - extension/game_config
     - pkg/client
     - pkg/component
     - pkg/component/componentstatus

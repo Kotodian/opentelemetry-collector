@@ -1,0 +1,4 @@
+change_type: new_component
+component: exporter/game
+note: Add a synchronous HTTP protocol adapter for prepared game events with gzip, HMAC signing, and validated per-event acknowledgements.
+issues: []

@@ -16,10 +16,12 @@ require (
 	go.opentelemetry.io/collector/connector/forwardconnector v0.164.0
 	go.opentelemetry.io/collector/exporter v1.70.0
 	go.opentelemetry.io/collector/exporter/debugexporter v0.164.0
+	go.opentelemetry.io/collector/exporter/gameexporter v0.164.0
 	go.opentelemetry.io/collector/exporter/nopexporter v0.164.0
 	go.opentelemetry.io/collector/exporter/otlpexporter v0.164.0
 	go.opentelemetry.io/collector/exporter/otlphttpexporter v0.164.0
 	go.opentelemetry.io/collector/extension v1.70.0
+	go.opentelemetry.io/collector/extension/gameconfigextension v0.164.0
 	go.opentelemetry.io/collector/extension/memorylimiterextension v0.164.0
 	go.opentelemetry.io/collector/extension/zpagesextension v0.164.0
 	go.opentelemetry.io/collector/otelcol v0.164.0
@@ -201,6 +203,8 @@ require (
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
 
+replace go.opentelemetry.io/collector/extension/gameconfigextension => ../../extension/gameconfigextension
+
 replace go.opentelemetry.io/collector/client => ../../client
 
 replace go.opentelemetry.io/collector/component => ../../component
@@ -266,6 +270,8 @@ replace go.opentelemetry.io/collector/connector/forwardconnector => ../../connec
 replace go.opentelemetry.io/collector/exporter => ../../exporter
 
 replace go.opentelemetry.io/collector/exporter/debugexporter => ../../exporter/debugexporter
+
+replace go.opentelemetry.io/collector/exporter/gameexporter => ../../exporter/gameexporter
 
 replace go.opentelemetry.io/collector/exporter/exportertest => ../../exporter/exportertest
 
